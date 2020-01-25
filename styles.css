@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #894f62;
+  --secondaryColor: #eed59a;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  box-shadow: 0px 0px 5px 2px var(--mainColor);
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/* ---------- Nav ---------- */
+
+#nav-wrapper {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  align-items: center;
+  top: 0;
+  width: 100vw;
+  height: 6rem;
+  background: var(--mainColor);
+}
+
+#nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: calc(vw - 5rem);
+  padding: 4rem 5rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#cart-icon-section {
+  position: relative;
+}
+
+#cart-icon-amount {
+  font-size: 1rem;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding: 0 0.25rem;
+  background: black;
+  border-radius: 10px;
+}
+
+/* ---------- Hero ---------- */
+
+#hero-wrapper {
+  min-height: calc(100vh - 6rem);
+  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hero-text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto;
+  height: 10rem;
+  width: 50%;
+  background: rgba(238, 213, 154, 0.25);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+#hero-header {
+  font-size: 2rem;
+  color: white;
+}
+
+#chevron-down {
+  position: absolute;
+  top: calc(100% - 4rem);
+  color: white;
+  font-size: 3rem;
+}
+
+/* ---------- Products ---------- */
+
+#products-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  padding: 5rem 2rem;
+  column-gap: 8rem;
+  background: url("images/products-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  min-width: 300px;
+}
+
+#product-title {
+  font-weight: 500;
+}
+
+#product-description {
+  font-weight: 100;
+  margin-top: 1.5rem;
+}
+
+#product-price {
+  font-weight: 100;
+  margin-top: 1rem;
+}
+
+/* ---------- Overlay ---------- */
+
+#overlay {
+  position: fixed;
+  top: 6rem;
+  height: 100vh;
+  left: 0;
+  width: 70%;
+  background: rgba(150, 89, 32, 0.377);
+}
+
+/* ---------- Cart ---------- */
+
+#cart-wrapper {
+  position: fixed;
+  top: 6rem;
+  right: 0;
+  height: 100vh;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(184, 166, 166);
+  overflow: scroll;
+}
+
+#cart-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#cart-item-div {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#cart-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-product-image {
+  width: 45%;
+  height: 40%;
+}
+
+#cart-item-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75 rem;
+  margin-bottom: 1.5rem;
+}
+
+#cart-item-amount {
+  display: flex;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+/* ---------- Footer ---------- */
+
+#footer-section {
+  background: var(--mainColor);
+  padding: 0.5rem 0;
+}
+
+/* ---------- Responsive Media Queries ---------- */
+
+@media only screen and (max-width: 300px) {
+  #products-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 769px) {
+  #products-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #products-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #products-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

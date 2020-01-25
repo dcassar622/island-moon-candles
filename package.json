@@ -1,0 +1,19 @@
+{
+  "name": "island-moon-candles",
+  "version": "1.0.0",
+  "description": "Island Moon Web-Shop",
+  "main": "main.js",
+  "dependencies": {
+    "contentful": "^7.13.1",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "start": "node .",
+    "build": "webpack"
+  },
+  "author": "Daniel Cassar",
+  "license": "ISC"
+}

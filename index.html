@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Island Moon Candles</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- main nav -->
+    <section id="nav-wrapper">
+      <nav id="nav-menu">
+        <i id="nav-bars" class="fas fa-bars"></i>
+         <h3 id='logo'>Island Moon</h3>
+      <div id="cart-icon-section">
+        <i id='cart-icon' class="fas fa-shopping-cart"></i>
+        <p id='cart-icon-amount'>0</p>
+      </div>
+    </nav>
+    </section>
+    <!-- hero section -->
+    <section id="hero-wrapper">
+        <div id="hero-text-area" class="text-area">
+            <h3 id='hero-header'>Where Scent Meets Style</h3>
+            <a href="#products-wrapper"><button>View Products</button></a>
+         </div>
+        <a href="#products-wrapper"><i id='chevron-down' class="fas fa-chevron-down"></i></a>
+    </section>
+    <!-- products section -->
+    <section id="products-wrapper">
+    <!-- single product 
+      <div id="product-div">
+        <img class='product-image' src="images/mercury.png" alt=""/>
+        <h4 id="product-title">The Candelabra</h4>
+        <p id="product-description">
+          A delicious blend of lavender and sandalwood with subtle notes of
+          berries
+        </p>
+        <p id="product-price">£20</p>
+      </div>
+    end of single product -->
+    <!-- page overlay -->
+    <div id="overlay" class='hidden'></div>
+    <!-- cart -->
+    <section id="cart-wrapper" class='hidden'>
+      <div id="cart-header">
+        <h3>Cart Items</h3>
+        <i class="fas fa-window-close"></i>
+      </div>
+      <div id="cart-item-div">
+          <div id="cart-item-info">
+              <img class="cart-product-image" src="images/mercury.png" alt=""/>    
+              <div id="cart-item-text">
+                  <h4 id="product-title">The Candelabra</h4>
+                  <p id="product-price">£20</p>
+              </div>
+          </div>
+          <div id="cart-item-amount">
+              <button>-</button>
+              <p id='cart-item-amount'>0</p>
+              <button>+</button>
+          </div>
+      </div>
+    </section>
+    <!-- footer section -->
+    <section id='footer-section'>
+        <h5>Website design by Daniel Cassar</h5>
+        <h6>Copyright Island Moon Candles 2020</h5>
+    </section>
+    <!-- end of markup -->
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+    <script type='module' src="./src/index.js"></script>
+    
+  </body>
+</html>
