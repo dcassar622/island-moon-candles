@@ -58,8 +58,14 @@ export class UI {
             cart.displayCart();
           }
         });
-        // if user wants to remove the amount of a particular product
-      } else if (event.target.className === "minus-btn") {
+      }
+      //if user wants to close the cart
+      else if (event.target.id === "close-cart-btn") {
+        console.log(event.target.id);
+        cartWrapper.className = "hidden";
+      }
+      // if user wants to remove the amount of a particular product
+      else if (event.target.className === "minus-btn") {
         cart.cart.forEach(product => {
           if (product.id === chosenProduct && product.amountInCart > 1) {
             product.amountInCart--;

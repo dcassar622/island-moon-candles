@@ -7,8 +7,8 @@
 }
 
 :root {
-  --mainColor: rgb(137, 79, 98);
-  --secondaryColor: #eed59a;
+  --mainColor: #e2d4d4;
+  --secondaryColor: #c99494;
   font-family: "Montserrat", sans-serif;
   font-weight: 200;
 }
@@ -35,8 +35,9 @@ button {
   align-items: center;
   top: 0;
   width: 100vw;
-  height: 6rem;
-  background: var(--mainColor);
+  height: 7rem;
+  background: var(--secondaryColor);
+  box-shadow: 0px 2px 15px 3px black;
 }
 
 #nav-menu {
@@ -67,15 +68,16 @@ button {
 /* ---------- Hero ---------- */
 
 #hero-wrapper {
-  min-height: calc(100vh - 6rem);
+  height: calc(100vh - 7rem);
   padding-top: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("images/hero.jpg");
+  background: #e2d4d4;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: 0px 2px 15px 3px black;
 }
 
 #hero-text-area {
@@ -86,18 +88,19 @@ button {
   margin: 0 auto;
   height: 10rem;
   width: 50%;
-  background: rgba(238, 213, 154, 0.25);
+  background: rgba(8, 2, 2, 0.644);
+  color: #8cc0c0;
   border-radius: 10px;
   padding: 1rem;
 }
 
 #hero-header {
   font-size: 2rem;
-  color: white;
+  color: d4e2e2;
 }
 
 #chevron-down {
-  position: absolute;
+  position: fixed;
   top: calc(100% - 4rem);
   color: white;
   font-size: 3rem;
@@ -114,6 +117,7 @@ button {
   background: url("images/products-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: 0px 2px 15px 3px black;
 }
 
 #product-div {
@@ -129,7 +133,7 @@ button {
 }
 
 .image-div:hover .product-image {
-  background: rgba(137, 79, 98, 0.3);
+  background: rgb(226, 212, 212, 0.5);
   border-radius: 20px;
 }
 
@@ -184,7 +188,7 @@ button {
 #cart-wrapper {
   z-index: 1;
   position: fixed;
-  top: 6rem;
+  top: 7rem;
   right: 0;
   height: 100vh;
   width: 30%;
