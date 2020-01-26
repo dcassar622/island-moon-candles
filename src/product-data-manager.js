@@ -18,7 +18,8 @@ export class ProductDataManager {
         const { title, description, price } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
-        return { title, description, price, id, image };
+        let amountInCart = 1;
+        return { title, description, price, id, image, amountInCart };
       });
       // returns the array of products to the main script file
       return productsArray;
