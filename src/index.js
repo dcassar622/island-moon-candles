@@ -1,6 +1,8 @@
 import { ProductDataManager } from "./product-data-manager.js";
 import { UI } from "./UI.js";
 import { Cart } from "./cart.js";
+import { Database } from "./database.js";
+import { setupFormValidation } from "./form-manager.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   setupSite();
@@ -16,11 +18,15 @@ function setupSite() {
   const productDataManager = new ProductDataManager(contentfulData);
   const ui = new UI();
   const cart = new Cart();
+  const database = new Database();
+
+  // sets up contact form with validation
+  setupFormValidation();
 
   // get the parsed product info then display it
   productDataManager.getProducts().then(products => {
     ui.displayProducts(products);
     //setup system for adding products to cart
-    ui.setupCartSystem(products, cart);
+    ui.setupUI(products, cart, database);
   });
 }

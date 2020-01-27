@@ -17,8 +17,15 @@
     <!-- main nav -->
     <section id="nav-wrapper">
       <nav id="nav-menu">
-        <i id="nav-bars" class="fas fa-bars"></i>
-         <h3 id='logo'>Island Moon</h3>
+        <div id='dropdown'>
+          <i id="nav-bars" class="fas fa-bars"></i>
+          <ul id='dropdown-list' class='hidden'>
+            <li><a href="#about-wrapper">About</a></li>
+            <li><a href="#products-wrapper">Products</a></li>
+            <li><a href="#form-wrapper">Contact</a></li>
+          </ul>
+        </div>
+        <h3 id='logo'>Island Moon</h3>
       <div id="cart-icon-section">
         <i id='cart-icon' class="fas fa-shopping-cart"></i>
         <p id='cart-icon-amount'>0</p>
@@ -29,7 +36,7 @@
     <section id="cart-wrapper" class='hidden'>
       <div id="cart-header">
         <h3>Cart Items</h3>
-        <a href='' id='close-cart-btn'><i class="fas fa-window-close"></i></a>
+        <i id='close-cart-btn' class="fas fa-window-close"></i>
       </div>
       <div id="cart-product-area">
         <!-- products go here -->
@@ -44,14 +51,60 @@
     </section>
     <!-- products section -->
     <section id="products-wrapper">
+      <div id='products-area'></div>
+    </section>
     <!-- page overlay -->
-    <div id="overlay"></div>
+    <div id="overlay" class='hidden'></div>
+    <!-- about section -->
+    <section id="about-wrapper">
+      <div id=about-info>
+        <h4 id='about-title'>About Us</h4>
+        <p  id=about-paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsam iste perferendis amet fugit numquam, reprehenderit pariatur quos placeat soluta sed incidunt molestiae ad aliquid odio laudantium ea perspiciatis? Voluptate? <br><br>
+
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsam iste perferendis amet fugit numquam, reprehenderit
+          pariatur quos placeat soluta sed incidunt molestiae ad aliquid odio laudantium ea perspiciatis? Voluptate? Reprehenderit
+          pariatur quos placeat soluta sed incidunt molestiae ad aliquid odio laudantium ea perspiciatis? Voluptate?
+        </p>
+      </div>
+    </section>
+    <!-- form section -->
+    <section id='form-wrapper'>
+      <div id='form-area'>
+      <h4 id='about-title'>Get In Touch</h4>
+      <form id='contact-form'>
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id='name' name='name' placeholder='ex: Tommy Wiseau'>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id='email' name='email' placeholder='ex: himark@ididnot.com'>
+        </div>
+        <div>
+          <label for="number">Number</label>
+          <input type="number" id='number' name='number' placeholder='optional'>
+        </div>
+        <div id='message-div'>
+          <label for="message">Message</label>
+          <textarea rows="4" cols="50" id='message' name='message' placeholder='A long, long time ago in a land far, far away...'></textarea>
+        </div>
+        <div>
+          <button id='submit-btn'>Submit</button>
+        </div>
+        <div>
+          <p id='error-message'></p>
+        </div>
+      </form>
+      </div>
+    </section>
     <!-- footer section -->
     <section id='footer-section'>
         <h5>Website design by Daniel Cassar</h5>
         <h6>Copyright Island Moon Candles 2020</h5>
     </section>
     <!-- end of markup -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
     <script type='module' src="./src/index.js"></script>
     

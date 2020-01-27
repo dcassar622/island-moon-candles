@@ -1,4 +1,6 @@
 export class UI {
+  /* Displays the products in the product area */
+
   displayProducts(productArray) {
     let productAreaInnerHtml = "";
     productArray.forEach(product => {
@@ -16,16 +18,20 @@ export class UI {
       </div>
       `;
     });
-    const productDisplayArea = document.getElementById("products-wrapper");
+    const productDisplayArea = document.getElementById("products-area");
     productDisplayArea.innerHTML = productAreaInnerHtml;
   }
 
-  setupCartSystem(productArray, cart) {
+  /* sets up the user interface by adding 
+      Event Listeners to Nav, Product and Cart Areas */
+
+  setupUI(productArray, cart, database) {
+    const navWrapper = document.getElementById("nav-wrapper");
     const productArea = document.getElementById("products-wrapper");
     const cartWrapper = document.getElementById("cart-wrapper");
-    const cartArea = document.getElementById("cart-product-area");
 
-    // Activate Buttons that allow user to add products to cart
+    /* ---------- PRODUCT Area ---------- */
+
     productArea.addEventListener("click", event => {
       if (event.target.className === "add-cart-btn") {
         cartWrapper.className = "";
@@ -38,15 +44,62 @@ export class UI {
             cart.displayCart();
             cart.updateTotal();
             cart.updateNavTotal();
+
+            database.addToDatabase(product);
           }
         });
       }
     });
 
-    /* ---------- Activate Buttons that allow user to add amount of each item already in the cart ---------- */
-    /* ---------- If current amount is one and user clicks MediaElementAudioSourceNode, the product is removed from cart ---------- */
+    /* ---------- NAV  Area ---------- */
+    let cartIconClicked = false;
+    let dropdownIconClicked = false;
 
-    cartArea.addEventListener("click", event => {
+    navWrapper.addEventListener("click", event => {
+      //if user toggles the cart icon
+      if (event.target.id === "cart-icon") {
+        if (cartIconClicked === false) {
+          cartWrapper.className = "";
+          cartIconClicked = true;
+        } else if (cartIconClicked === true) {
+          cartWrapper.className = "hidden";
+          cartIconClicked = false;
+        }
+      }
+    });
+
+    // if user hovers over/away from the menu bars (shows/toggles dropdown)
+    let dropdownList = document.getElementById("dropdown-list");
+    let dropdown = document.getElementById("dropdown");
+    window.addEventListener("mouseover", event => {
+      if (
+        //event.target.id === "dropdown" ||
+        event.target.id === "nav-bars" ||
+        event.target.id === "dropdown-list"
+      ) {
+        dropdownList.className = "";
+      }
+    });
+
+    dropdownList.addEventListener("mouseleave", event => {
+      if (event.target.id === "dropdown-list") {
+        dropdownList.className = "hidden";
+      }
+    });
+
+    dropdown.addEventListener("mouseleave", event => {
+      if (event.target.id === "dropdown") {
+        dropdownList.className = "hidden";
+      }
+    });
+
+    dropdownList.addEventListener("click", event => {
+      dropdownList.className = "hidden";
+    });
+
+    /* ---------- CART Area ---------- */
+
+    cartWrapper.addEventListener("click", event => {
       let chosenProduct = event.target.dataset.key;
 
       // if user wants to add more of the same product
@@ -61,7 +114,6 @@ export class UI {
       }
       //if user wants to close the cart
       else if (event.target.id === "close-cart-btn") {
-        console.log(event.target.id);
         cartWrapper.className = "hidden";
       }
       // if user wants to remove the amount of a particular product
@@ -87,12 +139,15 @@ export class UI {
           cart.displayCart();
         });
       } else if (event.target.id === "remove-item-btn") {
+        /* remove single item from cart, and allows the user to 
+          select it again from the products area*/
         cart.cart.forEach(product => {
           if (product.id === chosenProduct) {
             cart.removeFromCart(product);
             cart.displayCart(productArray);
           }
         });
+
         productArray.forEach(product => {
           if (chosenProduct === product.id) {
             let addToCartBtn = document.getElementById(product.id);
